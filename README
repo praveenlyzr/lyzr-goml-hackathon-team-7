@@ -1,0 +1,115 @@
+```markdown
+# Active Stock Trading Analysis Streamlit App
+
+## Overview
+This Streamlit application analyzes the active trading periods of stocks and how they align with investor interest. It showcases the problem statement, the solution function, and the results of test cases to help gauge investor sentiment and predict market movements more accurately.
+
+You can access the live app [here](https://fuji-sama.streamlit.app/).
+
+## Problem Statement
+### Problem 3: Active Stock Trading Analysis Python Coding Challenge
+
+**Scenario:**
+You need to analyze the active trading periods of stocks and how they align with investor interest. This will help you gauge investor sentiment and predict market movements more accurately.
+
+**Description:**
+You are provided with a 0-indexed 2D integer array `stocks`, where `stocks[i] = [starti, endi]` signifies that the ith stock is actively traded from `starti` to `endi` (inclusive). Additionally, you have a 0-indexed integer array `investors` of size `n`, where `investors[i]` indicates the time that the ith investor arrives to check the active trades.
+
+**Task:**
+Return an integer array `answer` of size `n`, where `answer[i]` is the number of stocks that are actively traded when the ith investor arrives.
+
+### Example
+```python
+# Input:
+stocks = [[1,6], [3,7], [9,12], [4,13]]
+investors = [2, 3, 7, 11]
+# Output:
+[1, 2, 2, 2]
+```
+
+**Explanation:**
+For each investor, return the number of stocks that are actively traded during their arrival.
+
+- Investor at time 2: 1 stock is active (stocks[0])
+- Investor at time 3: 2 stocks are active (stocks[0], stocks[1])
+- Investor at time 7: 2 stocks are active (stocks[1], stocks[3])
+- Investor at time 11: 2 stocks are active (stocks[2], stocks[3])
+
+## Solution Function
+```python
+def active_stocks_at_investor_times(stocks, investors):
+    answer = []
+    for investor_time in investors:
+        count = 0
+        for start, end in stocks:
+            if start <= investor_time <= end:
+                count += 1
+        answer.append(count)
+    return answer
+```
+
+## Test Cases
+The application showcases the results of five test cases:
+
+1. **Test Case 1**
+    - Input: `[[1, 4], [2, 3], [3, 5]]` and `[2, 3, 5]`
+    - Expected Output: `[2, 3, 1]`
+  
+2. **Test Case 2**
+    - Input: `[[1, 6], [3, 7], [9, 12], [4, 13]]` and `[2, 3, 7, 11]`
+    - Expected Output: `[1, 2, 2, 2]`
+
+3. **Test Case 3**
+    - Input: `[[1, 10], [3, 3]]` and `[3, 3, 2]`
+    - Expected Output: `[2, 2, 1]`
+
+4. **Test Case 4**
+    - Input: `[[5, 8], [6, 7], [8, 10]]` and `[6, 9, 10, 5]`
+    - Expected Output: `[2, 1, 1, 1]`
+  
+5. **Test Case 5**
+    - Input: `[[1, 2], [2, 3], [3, 4]]` and `[1, 2, 3, 4]`
+    - Expected Output: `[1, 2, 2, 1]`
+
+## Running the Application
+1. **Clone the repository**
+    ```sh
+    git clone https://github.com/your-repo/active-stock-trading-analysis
+    cd active-stock-trading-analysis
+    ```
+
+2. **Install dependencies**
+    ```sh
+    pip install streamlit
+    ```
+
+3. **Run the Streamlit application**
+    ```sh
+    streamlit run app.py
+    ```
+
+4. **Visit the localhost URL provided by Streamlit to see the application.**
+
+## Deployment
+The application is deployed at [https://fuji-sama.streamlit.app/](https://fuji-sama.streamlit.app/).
+
+---
+
+Feel free to explore the app, and if you have any questions or contributions, please open an issue or submit a pull request.
+```
+
+### Deploying to Streamlit Cloud
+
+1. **Sign up or log in to Streamlit Cloud** at [Streamlit Cloud](https://streamlit.io/cloud).
+   
+2. **Create a new app**:
+    - Connect your GitHub repository containing the Streamlit app to Streamlit Cloud.
+    - Select the main branch and the file `app.py` as the entry point.
+   
+3. **Deploy the app**.
+
+4. Once deployed, you'll receive a unique URL (which could be the given `https://fuji-sama.streamlit.app/` if that's configured) to share and access your Streamlit application.
+
+5. **Update the README** with the URL for users to access the app.
+
+By following these steps, you'll have a fully documented and deployed Streamlit application ready to showcase the active stock trading analysis functionality.
