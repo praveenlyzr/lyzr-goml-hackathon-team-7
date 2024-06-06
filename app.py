@@ -1,7 +1,9 @@
 import streamlit as st
 from rag import Data, RAG
+import os
+from utils import *
 
-
+temp_directory()
 # Streamlit UI
 st.image(
     "dowjones.jpg", width=600, caption="POWERING THE PROFESSIONAL WORLD"
